@@ -95,6 +95,8 @@ export interface WebSocketConfig {
     headers?: string;
     auth_token?: string;
     message_template?: string;
+    // 连接成功后发送的订阅消息（原始字符串，一般为JSON字符串）
+    subscribe_message?: string;
     auto_reconnect: boolean;
     status: 'active' | 'inactive' | 'error';
     created_at: number;
@@ -109,6 +111,8 @@ export interface NewWebSocketConfig {
     headers?: string;
     auth_token?: string;
     message_template?: string;
+    // 连接成功后发送的订阅消息（原始字符串，一般为JSON字符串）
+    subscribe_message?: string;
     auto_reconnect?: boolean;
 }
 
