@@ -34,43 +34,10 @@ export interface ToolsGridProps {
 }
 
 // 推特情报站数据结构
-export interface TwitterItem {
-    id: number;
-    name: string;      // 账号或分组名
-    icon: string;      // 头像占位（可用 emoji 或后续换成图片）
-    bg_color?: string;  // 卡片图标背景色
-    messages: string;  // 最新情报/摘要
-    created: number;   // 最新消息时间戳（秒或毫秒）
-}
-
-export interface TwitterCardProps {
-    twitter: TwitterItem;
-}
-
-export interface TwittersGridProps {
-    items: TwitterItem[];
-}
+// (removed) Twitter related types
 
 // KOL 页面
-export type KolPlatform = 'twitter' | 'reddit' | 'youtube';
-
-export interface KolItem {
-    id: number;
-    name: string;         // 昵称
-    avatar?: string;      // 头像链接或 emoji
-    description: string;  // 简介
-    url: string;          // 跳转地址
-    platform: KolPlatform;// 平台
-}
-
-export interface KolCardProps {
-    kol: KolItem;
-}
-
-export interface KolsGridProps {
-    items: KolItem[];
-    platform?: KolPlatform | 'all';
-}
+// (removed) KOL related types
 
 export interface TabItem {
     key: string;

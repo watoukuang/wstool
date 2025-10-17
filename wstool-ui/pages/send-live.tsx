@@ -1,10 +1,16 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import WebSocketSender from '../components/Sender';
+import SeoHead from '../components/SeoHead';
 
 export default function SendLive(): React.ReactElement {
   return (
     <Layout>
+      <SeoHead
+        title="WebSocket 消息发送（实时）"
+        description="在浏览器中直接连接WebSocket并发送消息，实时查看回执与日志。"
+        url="https://wstool.example.com/send-live"
+      />
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="w-full max-w-7xl">
           <div className="text-center mb-8">

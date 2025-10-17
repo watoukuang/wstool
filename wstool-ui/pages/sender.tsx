@@ -1,10 +1,16 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import WebSocketSender from '../components/Sender';
+import SeoHead from '../components/SeoHead';
 
 export default function Sender(): React.ReactElement {
     return (
         <Layout>
+            <SeoHead
+                title="WebSocket 消息发送"
+                description="通用 WebSocket 发送工具：连接目标WS服务并发送自定义消息，实时查看回执。"
+                url="https://wstool.example.com/sender"
+            />
             <div className="min-h-screen flex items-center justify-center px-4">
                 <div className="w-full max-w-7xl">
                     <div className="text-center mb-8">

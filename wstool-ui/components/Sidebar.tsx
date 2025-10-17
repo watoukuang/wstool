@@ -74,37 +74,21 @@ export default function Sidebar(): React.ReactElement {
   const recoms: MenuItem[] = [
     {
       icon: "",
-      name: "交易所快讯",
+      name: "消息订阅",
       href: "/",
-      colorIcon: "text-amber-500 dark:text-amber-400",
-      colorBar: "bg-amber-500 dark:bg-amber-400",
-    },
-    {
-      icon: "",
-      name: "推特情报站",
-      href: "/writing",
-      colorIcon: "text-violet-600 dark:text-violet-400",
-      colorBar: "bg-violet-600 dark:bg-violet-400",
-    },
-    {
-      icon: "",
-      name: "WebSocket工具",
-      href: "/websocket",
       colorIcon: "text-emerald-500 dark:text-emerald-400",
       colorBar: "bg-emerald-500 dark:bg-emerald-400",
     },
+    {
+      icon: "",
+      name: "消息发送",
+      href: "/sender",
+      colorIcon: "text-blue-600 dark:text-blue-400",
+      colorBar: "bg-blue-600 dark:bg-blue-400",
+    },
   ];
 
-    const channels: MenuItem[] = [
-        {
-            icon: "🤖",
-            name: "精选 KOL",
-            href: "/ai-agents",
-            colorIcon: "text-rose-500 dark:text-rose-400",
-            colorBar: "bg-rose-500 dark:bg-rose-400"
-        }
-
-    ];
+    const channels: MenuItem[] = [];
     return (
         <aside
             className="w-full lg:w-56 overflow-y-auto py-2 px-2 lg:px-4 lg:border-r lg:border-gray-200 dark:lg:border-[#2a2c31] lg:fixed lg:top-0 lg:h-screen dark:bg-[#1a1b1e]">
@@ -136,26 +120,30 @@ export default function Sidebar(): React.ReactElement {
                     );
                 })}
             </nav>
-            <div className="mb-4 pb-2 lg:pb-4 border-b border-gray-100 dark:border-gray-800 hidden lg:block mt-10">
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300">
-                  <span aria-hidden>🧭</span>
-                  热门分类
-                </span>
-            </div>
-            <nav className="space-y-1">
-                {channels.map((item, index) => {
-                    const active = pathname === item.href || pathname.startsWith(item.href + '/');
-                    return (
-                        <Link href={item.href} key={index}
-                              className={`sidebar-link relative pl-3 ${active ? 'active' : ''}`}>
-                            {active && <span aria-hidden
-                                             className={`absolute left-0.5 top-1/2 -translate-y-1/2 h-6 w-1.5 rounded-full ${item.colorBar || ''}`}/>}
-                            <span className={`mr-2 ${item.colorIcon || ''}`}>{renderIcon(item.name, '')}</span>
-                            <span className="text-sm">{item.name}</span>
-                        </Link>
-                    );
-                })}
-            </nav>
+            {channels.length > 0 && (
+              <>
+                <div className="mb-4 pb-2 lg:pb-4 border-b border-gray-100 dark:border-gray-800 hidden lg:block mt-10">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300">
+                      <span aria-hidden>🧭</span>
+                      热门分类
+                    </span>
+                </div>
+                <nav className="space-y-1">
+                    {channels.map((item, index) => {
+                        const active = pathname === item.href || pathname.startsWith(item.href + '/');
+                        return (
+                            <Link href={item.href} key={index}
+                                  className={`sidebar-link relative pl-3 ${active ? 'active' : ''}`}>
+                                {active && <span aria-hidden
+                                                 className={`absolute left-0.5 top-1/2 -translate-y-1/2 h-6 w-1.5 rounded-full ${item.colorBar || ''}`}/>}
+                                <span className={`mr-2 ${item.colorIcon || ''}`}>{renderIcon(item.name, '')}</span>
+                                <span className="text-sm">{item.name}</span>
+                            </Link>
+                        );
+                    })}
+                </nav>
+              </>
+            )}
         </aside>
     );
 }
