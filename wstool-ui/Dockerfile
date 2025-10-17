@@ -18,16 +18,17 @@ RUN npm run build
 FROM node:18-bullseye AS runner
 WORKDIR /app
 ENV NODE_ENV=production
+ENV PORT=3001
 
 # Copy standalone output and static assets
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
-# Expose default Next.js port
-EXPOSE 3000
+# Expose port 3001
+EXPOSE 3001
 
-# Start the server
+# Start the server on $PORT (Next standalone reads PORT env)
 CMD ["node", "server.js"]
 
 
