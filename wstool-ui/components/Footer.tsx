@@ -59,7 +59,7 @@ export default function Footer(): React.ReactElement {
                             <li>
                               <a
                                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                href="mailto:contact@watoukuang.com">联系邮箱：contact@watoukuang.com</a>
+                                href="mailto:651023907@qq.com">联系邮箱：651023907@qq.com</a>
                             </li>
                             <li>
                               <div className="flex items-center gap-3 pt-1">
