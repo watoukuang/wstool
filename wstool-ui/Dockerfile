@@ -14,7 +14,7 @@ RUN npm ci
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN npx next build
 
 # Production stage
 FROM node:18-alpine AS runner
