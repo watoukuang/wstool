@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import {HeaderProps} from '../types';
+import Logo from './icons/Logo';
 import LoginModal from './LoginModal';
 
 export default function Header({toggleSidebar}: HeaderProps): React.ReactElement {
@@ -120,15 +121,8 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
                         </button>
 
                         {/* 品牌Logo和标题 - 在所有屏幕尺寸下都显示 */}
-                        <Link href="/" className="flex items-center">
-                            <img
-                                src={(theme === 'dark' || (theme === 'system' && systemDark)) ? '/logo-dark.png' : '/logo.png'}
-                                onError={(e) => {
-                                    (e.currentTarget as HTMLImageElement).src = '/logo.png';
-                                }}
-                                alt="WSTOOL Logo"
-                                className="h-10 w-auto select-none"
-                            />
+                        <Link href="/" className="flex items-center gap-2">
+                            <Logo />
                             <span
                                 className="text-xl md:text-2xl font-bold tracking-wide leading-none select-none bg-gradient-to-r from-blue-600 to-emerald-600 dark:from-sky-400 dark:to-emerald-300
                         bg-clip-text text-transparent drop-shadow-sm">WsTool</span>
