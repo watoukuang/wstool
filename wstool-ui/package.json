@@ -1,5 +1,5 @@
 {
-  "name": "data-wstool",
+  "name": "wstool-ui",
   "version": "1.0.0",
   "description": "数据WsTool - WebSocket工具平台",
   "private": true,
