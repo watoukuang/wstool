@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function About(): React.ReactElement {
+export default function Question(): React.ReactElement {
     return (
         <>
             <div className="relative overflow-hidden">

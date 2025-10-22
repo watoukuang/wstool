@@ -26,7 +26,7 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
     const menuItems: { name: string; href: string; icon: React.ReactNode }[] = [
         {
             name: '消息订阅',
-            href: '/subscribe',
+            href: '/',
             icon: (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -46,7 +46,7 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
         },
         {
             name: '问题列表',
-            href: '/about',
+            href: '/question',
             icon: (
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path

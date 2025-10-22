@@ -12,7 +12,13 @@ const nextConfig = {
     defaultLocale: 'zh',
   },
   async redirects() {
-    return [];
+    return [
+      {
+        source: '/subscribe',
+        destination: '/',
+        permanent: true,
+      },
+    ];
   },
   async headers() {
     return [
