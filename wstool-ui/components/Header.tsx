@@ -46,7 +46,7 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
             ),
         },
         {
-            name: '问题列表',
+            name: '问题反馈',
             href: '/question',
             icon: (
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
 
                         {/* 品牌Logo和标题 - 在所有屏幕尺寸下都显示 */}
                         <Link href="/" className="flex items-center gap-2">
-                            <Logo />
+                            <Logo/>
                             <span
                                 className="text-xl md:text-2xl font-bold tracking-wide leading-none select-none bg-gradient-to-r from-blue-600 to-emerald-600 dark:from-sky-400 dark:to-emerald-300
                         bg-clip-text text-transparent drop-shadow-sm">WsTool</span>
