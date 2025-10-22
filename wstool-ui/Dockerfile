@@ -5,11 +5,8 @@ FROM node:18-bullseye AS builder
 WORKDIR /app
 
 # Install deps
-COPY package*.json ./
-RUN npm ci
-
-# Copy source
 COPY . .
+RUN rm -rf node_modules && npm ci
 
 # Build production
 RUN npm run build
@@ -30,5 +27,3 @@ EXPOSE 3001
 
 # Start the server on $PORT (Next standalone reads PORT env)
 CMD ["node", "server.js"]
-
-
