@@ -4,9 +4,9 @@
   "description": "数据WsTool - WebSocket工具平台",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3001",
+    "start": "next start ",
     "lint": "next lint",
     "export": "next build && next export"
   },
@@ -17,7 +17,7 @@
     "nextjs",
     "tailwindcss"
   ],
-  "author": "数据WsTool",
+  "author": "XiaoKuiGe",
   "license": "MIT",
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.13",
