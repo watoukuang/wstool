@@ -1,9 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
 import Logo from './icons/Logo';
-import DiscordIcon from './icons/DiscordIcon';
-import TwitterIcon from './icons/TwitterIcon';
-import TelegramIcon from './icons/TelegramIcon';
 
 export default function Footer(): React.ReactElement {
     return (
@@ -14,8 +10,9 @@ export default function Footer(): React.ReactElement {
                     {/* 左侧品牌与备案（占两列） */}
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-2 mb-2">
-                            <Logo />
-                            <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">WsTool</span>
+                            <Logo/>
+                            <span
+                                className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">WsTool</span>
                         </div>
                         <div className="space-y-1.5 text-xs md:text-[13px] text-gray-600 dark:text-gray-400">
                             <p>© {new Date().getFullYear()} WsTool · WebSocket工具平台</p>
