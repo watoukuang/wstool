@@ -6,7 +6,19 @@ WORKDIR /app
 
 # Install deps
 COPY package*.json ./
-RUN npm ci
+ 
+# Configure npm registry and timeouts (can be overridden at build time)
+ARG NPM_REGISTRY=https://registry.npmmirror.com
+RUN npm config set registry $NPM_REGISTRY \
+    && npm config set fetch-retries 5 \
+    && npm config set fetch-retry-factor 2 \
+    && npm config set fetch-retry-maxtimeout 120000 \
+    && npm config set fetch-timeout 120000 \
+    && npm -v \
+    && node -v
+
+# Install deps with fallback to official registry if mirror is flaky
+RUN npm ci || (npm config set registry https://registry.npmjs.org && npm ci)
 
 # Copy source
 COPY . .
