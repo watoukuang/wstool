@@ -1,36 +1,37 @@
 # WSTools - WebSocket工具平台
 
-一个通用的WebSocket工具平台，提供WebSocket连接管理、消息发送和数据订阅功能。
+**服务部署**
 
-## 功能特性
-
-- 🚀 **消息发送器** - 向目标WebSocket服务发送自定义消息
-- 📡 **数据订阅器** - 订阅外部WebSocket数据源
-- 🔧 **连接管理** - 可视化管理WebSocket连接配置
-- 📊 **实时监控** - 连接状态和消息统计
-- 🧪 **连接测试** - 测试WebSocket连接可用性
-
-## 快速启动
-
-### 使用启动脚本（推荐）
-
+- 前端启动
 ```shell
-# 启动所有服务
-./start.sh
-
-# 停止所有服务
-./stop.sh
+docker build -t wstool-ui:latest .
 ```
+- 服务运行
+```angular2html
+docker run --name watoukuang-front --restart=always -p 3000:3000 watoukuang-front:latest
+```
+
+**常用命令**
+```shell
+docker run --name nginx --restart=always -p 443:443 -p 80:80 -d -v /usr/local/nginx/nginx.conf:/etc/nginx/nginx.conf -v /usr/local/web:/usr/local/web -v /usr/local/upload:/usr/local/upload nginx
+
+```
+
+154.204.34.183
+root
+qDTAc7L04sgM
 
 ### 手动启动
 
 #### 后端服务
+
 ```shell
 cd wstool-api
 cargo run
 ```
 
 #### 前端服务
+
 ```shell
 cd wstool-ui
 npm install
