@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout from '../components/Layout';
-import { getPageSEO } from '../config/seo';
+import { getPageSEO } from '../utils/seo';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps): React.ReactElement {
