@@ -43,15 +43,6 @@ export default function Footer(): React.ReactElement {
                                   href="/disclaimer">免责声明
                                 </Link>
                             </li>
-                            <li>
-                                <Link
-                                className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                href="/terms">用户协议
-                                </Link>
-                            </li>
-                            <li><Link
-                                className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                href="/privacy">隐私政策</Link></li>
                         </ul>
                     </div>
                     <div>

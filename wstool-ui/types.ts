@@ -1,48 +1,6 @@
 import {ReactNode} from 'react';
 
-export interface Tag {
-    title: string;
-    created: number
-    href: string
-}
-
-export interface Tool {
-    id: number;
-    type?: string,
-    name: string;
-    icon: string;
-    bg_color?: string;
-    messages: Tag[];
-    category?: string;
-}
-
-export interface FilterDropdownProps {
-    label: string;
-    options: string[];
-    value: string;
-    onChange: (value: string) => void;
-}
-
-export interface ToolCardProps {
-    cex: Tool;
-}
-
-export interface ToolsGridProps {
-    tools: Tool[];
-    selectedCategory: string;
-    selectedType: string;
-}
-
-// 推特情报站数据结构
-// (removed) Twitter related types
-
-// KOL 页面
-// (removed) KOL related types
-
-export interface TabItem {
-    key: string;
-    label: string;
-}
+// 移除了未使用的 Tool、Tag、FilterDropdown 等相关类型定义
 
 export interface LayoutProps {
     children: ReactNode;

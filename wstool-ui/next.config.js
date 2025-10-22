@@ -12,18 +12,7 @@ const nextConfig = {
     defaultLocale: 'zh',
   },
   async redirects() {
-    return [
-      {
-        source: '/user-agreement',
-        destination: '/terms',
-        permanent: true,
-      },
-      {
-        source: '/privacy-policy',
-        destination: '/privacy',
-        permanent: true,
-      },
-    ];
+    return [];
   },
   async headers() {
     return [

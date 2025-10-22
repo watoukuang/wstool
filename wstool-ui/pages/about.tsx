@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../components/Layout';
 
 export default function About(): React.ReactElement {
     return (
-        <Layout>
+        <>
             <div className="relative overflow-hidden">
                 {/* 背景装饰 */}
                 <div className="pointer-events-none absolute inset-0 -z-10">
@@ -127,6 +126,6 @@ export default function About(): React.ReactElement {
                     </div>
                 </div>
             </div>
-        </Layout>
+        </>
     );
 }

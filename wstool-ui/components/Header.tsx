@@ -26,7 +26,7 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
     const menuItems: { name: string; href: string; icon: React.ReactNode }[] = [
         {
             name: '消息订阅',
-            href: '/',
+            href: '/subscribe',
             icon: (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -41,6 +41,25 @@ export default function Header({toggleSidebar}: HeaderProps): React.ReactElement
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                           d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+            ),
+        },
+        {
+            name: '连接管理',
+            href: '/websocket',
+            icon: (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+            ),
+        },
+        {
+            name: '关于',
+            href: '/about',
+            icon: (
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
                 </svg>
             ),
         },
