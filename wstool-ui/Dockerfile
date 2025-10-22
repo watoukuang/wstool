@@ -1,29 +1,47 @@
-# Multi-stage Dockerfile for Next.js (standalone output)
+# Multi-stage Dockerfile for Next.js production build
 
-# 1) Build stage
-FROM node:18-bullseye AS builder
+# Build stage
+FROM node:18-alpine AS builder
 WORKDIR /app
 
-# Install deps
-COPY . .
-RUN rm -rf node_modules && npm ci
+# Copy package files first for better layer caching
+COPY package.json package-lock.json ./
 
-# Build production
+# Install dependencies
+RUN npm ci --only=production=false
+
+# Copy source code
+COPY . .
+
+# Build the application
 RUN npm run build
 
-# 2) Runtime stage (minimal)
-FROM node:18-bullseye AS runner
+# Production stage
+FROM node:18-alpine AS runner
 WORKDIR /app
+
+# Set production environment
 ENV NODE_ENV=production
 ENV PORT=3001
 
-# Copy standalone output and static assets
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public
+# Create non-root user for security
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Expose port 3001
+# Copy built application from builder stage
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+# Switch to non-root user
+USER nextjs
+
+# Expose port
 EXPOSE 3001
 
-# Start the server on $PORT (Next standalone reads PORT env)
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3001/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })" || exit 1
+
+# Start the application
 CMD ["node", "server.js"]
